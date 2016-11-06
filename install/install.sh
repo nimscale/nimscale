@@ -50,7 +50,8 @@ function nim_compile {
 
 function setenv {
     export PATH=$HOME/.nimble/bin:$PATH
-    cp ~/.bash_profile ~/.bash_profile2; cat ~/.bash_profile2 | grep -v '/.nimble' > ~/.bash_profile
+    # cp ~/.bash_profile ~/.bash_profile2; cat ~/.bash_profile2 | grep -v '/.nimble' > ~/.bash_profile
+    sed -i.bak '/.nimble/d' ~/.bash_profile
     echo 'export PATH=$HOME/.nimble/bin:$PATH' >> $HOME/.bash_profile
 }
 
@@ -100,6 +101,7 @@ function install_deps {
         nimble install otp  -y
         nimble install nimrpc -y
         nimble install fileinput -y
+        nimble install https://github.com/singularperturbation/nim-leveldb -y
 
         #NOT WORKING
         # nimble install nimstopwatch -y
@@ -124,6 +126,7 @@ function install_nimscale {
             cd ..
         else
             git clone git@github.com:nimscale/nimscale.git
+            ln -s ~/nim/nimscale/nimscale /usr/local/lib/nim/nimscale
         fi
         touch $TMPDIR/nimscale_done
     fi
