@@ -2,13 +2,6 @@
 
 to install
 ```
-nimble install https://github.com/nimscale/nimscale
+curl https://raw.githubusercontent.com/nimscale/nimscale/master/install/install.sh |sh
 ```
 
-# requirements
-
-## osx
-
-```
-
-```
