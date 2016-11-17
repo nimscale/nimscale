@@ -65,7 +65,7 @@ function install_deps {
         nimble install redis -y
         nimble install libcurl -y
         nimble install c2nim -y
-        nimble install capnp -y
+        #nimble install capnp -y
         nimble install fnmatch -y
         nimble install hastyscribe  -y
         nimble install jester -y
