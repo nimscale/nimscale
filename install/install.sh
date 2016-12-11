@@ -31,6 +31,7 @@ function nim_compile {
         bin/nim c koch
         ./koch boot -d:release
         #./koch tools
+        sh build_tools.sh
         ./koch web
         #./koch nimble
         nim e install_nimble.nims
