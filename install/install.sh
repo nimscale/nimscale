@@ -14,6 +14,8 @@ function nim_compile {
         else
             git clone https://github.com/nim-lang/Nim.git
             cd Nim
+            git checkout -b master origin/master
+            
         fi
         if [ -d "$HOME/nim/Nim/csources" ]; then
             cd csources
@@ -21,6 +23,7 @@ function nim_compile {
         else
             git clone --depth 1 https://github.com/nim-lang/csources
             cd csources
+            #git checkout -b master origin/master
         fi
 
         sh build.sh
