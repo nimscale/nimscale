@@ -30,13 +30,14 @@ function nim_compile {
         cd ..
         bin/nim c koch
         ./koch boot -d:release
-        ./koch tools
+        #./koch tools
         ./koch web
-        ./koch nimble
+        #./koch nimble
 
-        #DONT USE KOCH, doesn't work on osx
+        #DONT USE KOCH, doesn't work on osx for geninstall, which creates installer
         # ./koch geninstall
         # sh install.sh install
+
         rm -f /usr/bin/nim*
         rm -f /usr/local/bin/nim*
         rm -rf /usr/local/lib/nim*
