@@ -33,6 +33,7 @@ function nim_compile {
         #./koch tools
         ./koch web
         #./koch nimble
+        nim e install_nimble.nims
 
         #DONT USE KOCH, doesn't work on osx for geninstall, which creates installer
         # ./koch geninstall
