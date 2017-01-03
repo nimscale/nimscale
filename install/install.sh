@@ -41,7 +41,8 @@ function nim_compile {
     rm -f /usr/local/bin/nim*
     rm -rf /usr/local/lib/nim*
     rm -rf /usr/lib/nim*
-    rm -rf /usr/bin/koch*
+    rm -f /usr/bin/koch*
+    rm -f /usr/local/bin/koch*
     
     ln -s ~/nim/Nim/lib/ /usr/local/lib/nim
     ln -s ~/nim/Nim/bin/nim /usr/local/bin/nim
