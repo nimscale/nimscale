@@ -76,7 +76,7 @@ function install_deps {
     nimble install redis -y
     nimble install libcurl -y
     nimble install c2nim -y
-    #nimble install capnp -y
+    nimble install capnp -y
     nimble install fnmatch -y
     nimble install hastyscribe  -y
     nimble install jester -y
@@ -84,7 +84,7 @@ function install_deps {
     nimble install libnotify -y
     nimble install jwt -y
     nimble install lmdb -y
-    nimble install msgpack4nim   -y
+    #nimble install msgpack4nim   -y
     nimble install nimlz4 -y
     nimble install nimongo -y
     nimble install nimPDF -y
@@ -110,15 +110,17 @@ function install_deps {
     nimble install teafiles  -y #https://github.com/unicredit/nim-teafiles
     nimble install rethinkdb  -y
     nimble install otp  -y
-    nimble install nimrpc -y
+    #nimble install nimrpc -y
     nimble install fileinput -y
-    nimble install https://github.com/singularperturbation/nim-leveldb -y
+    nimble install pudge -y
+    
 
     #NOT WORKING
     # nimble install nimstopwatch -y
     # nimble install orientdb  -y #http://orientdb.com/orientdb/
     # nimble install nim-routine -y
     # nimble install nim-fnmatch -y
+    # nimble install 'https://github.com/singularperturbation/nim-leveldb' -y
 
 }
 
