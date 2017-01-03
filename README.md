@@ -2,7 +2,7 @@
 
 to install
 ```
-curl https://raw.githubusercontent.com/nimscale/nimscale/master/install/install.sh |sh
+curl https://raw.githubusercontent.com/nimscale/nimscale/master/install/install.sh?$RANDOM |sh
 ```
 
 - will install nim,nimble & all required libraries
