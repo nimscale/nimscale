@@ -20,7 +20,7 @@ function nim_compile {
         git pull
         git checkout tags/v0.15.2             
     else
-        git clone --depth 1 https://github.com/nim-lang/csources
+        git clone https://github.com/nim-lang/csources
         cd csources
         #git checkout -b master origin/master
         git checkout tags/v0.15.2     
