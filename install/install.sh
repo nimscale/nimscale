@@ -76,28 +76,28 @@ function install_deps {
     if [ -e $TMPDIR/nimscale_deps_done ] ; then
         echo "NO NEED TO INSTALL DEPS"
     else
-    cd $HOME/nim
-    nimble install nimlua -y
-    nimble install libsodium -y
-    nimble install redis -y
-    nimble install libcurl -y
-    nimble install c2nim -y
-    nimble install capnp -y
-    nimble install fnmatch -y
-    nimble install hastyscribe  -y
-    nimble install jester -y
-    nimble install jwt -y
-    nimble install libnotify -y
-    nimble install jwt -y
-    nimble install lmdb -y
-    
-    nimble install nimlz4 -y
-    nimble install nimongo -y
-    nimble install nimPDF -y
-    nimble install nimsnappy -y
-    nimble install nimyaml -y
-    nimble install notifications  -y
-    nimble install oauth -y
+        cd $HOME/nim
+        nimble install nimlua -y
+        nimble install libsodium -y
+        nimble install redis -y
+        nimble install libcurl -y
+        nimble install c2nim -y
+        nimble install capnp -y
+        nimble install fnmatch -y
+        nimble install hastyscribe  -y
+        nimble install jester -y
+#         nimble install jwt -y
+        nimble install libnotify -y
+        nimble install jwt -y
+        nimble install lmdb -y
+
+        nimble install nimlz4 -y
+        nimble install nimongo -y
+        nimble install nimPDF -y
+        nimble install nimsnappy -y
+        nimble install nimyaml -y
+        nimble install notifications  -y
+        nimble install oauth -y
         nimble install rbtree -y
         nimble install reactor -y
         nimble install RingBuffer  -y
