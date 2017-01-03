@@ -34,21 +34,28 @@ function nim_compile {
     sh build_tools.sh
     ./koch web
     #./koch nimble
+    
+    rm -f /usr/bin/nim*
+    rm -f /usr/local/bin/nim*
+    rm -rf /usr/local/lib/nim*
+    rm -rf /usr/lib/nim*
+    
+    ln -s ~/nim/Nim/lib/ /usr/local/lib/nim
+    ln -s ~/nim/Nim/bin/nim /usr/local/bin/nim
+
     nim e install_nimble.nims
+
+    ln -s ~/nim/Nim/bin/nimble /usr/local/bin/nimble
+    ln -s ~/nim/Nim/bin/nimgrep /usr/local/bin/nimgrep
+    ln -s ~/nim/Nim/bin/nimsuggest /usr/local/bin/nimsuggest
+    ln -s ~/nim/Nim/koch /usr/local/bin/koch
+    ln -s ~/nim/Nim/tools/nimweb /usr/local/bin/nimweb
 
     #DONT USE KOCH, doesn't work on osx for geninstall, which creates installer
     # ./koch geninstall
     # sh install.sh install
 
-    rm -f /usr/bin/nim*
-    rm -f /usr/local/bin/nim*
-    rm -rf /usr/local/lib/nim*
-    rm -rf /usr/lib/nim*
-    ln -s ~/nim/Nim/lib/ /usr/local/lib/nim
-    ln -s ~/nim/Nim/bin/nim /usr/local/bin/nim
-    ln -s ~/nim/Nim/bin/nimble /usr/local/bin/nimble
-    ln -s ~/nim/Nim/bin/nimgrep /usr/local/bin/nimgrep
-    ln -s ~/nim/Nim/bin/nimsuggest /usr/local/bin/nimsuggest
+
 }
 
 function setenv {
