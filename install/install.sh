@@ -11,11 +11,12 @@ function nim_compile {
         if [ -d "$HOME/nim/Nim" ]; then
             cd Nim
             git pull
+            git checkout tags/v0.15.2
         else
             git clone https://github.com/nim-lang/Nim.git
             cd Nim
-            git checkout -b master origin/master
-            
+            #git checkout -b master origin/master
+            git checkout tags/v0.15.2            
         fi
         if [ -d "$HOME/nim/Nim/csources" ]; then
             cd csources
