@@ -88,7 +88,6 @@ function install_deps {
         nimble install jester -y
 #         nimble install jwt -y
         nimble install libnotify -y
-        nimble install jwt -y
         nimble install lmdb -y
 
         nimble install nimlz4 -y
