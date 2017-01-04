@@ -1,7 +1,9 @@
 set -ex
 
+rm -rf $HOME/nim
 mkdir -p $HOME/nim
 cd $HOME/nim
+
 
 function nim_compile {
     if [ -e $TMPDIR/nimscale_compile_done ] ; then
@@ -11,19 +13,22 @@ function nim_compile {
         if [ -d "$HOME/nim/Nim" ]; then
             cd Nim
             git pull
+            git checkout tags/v0.15.2
         else
             git clone https://github.com/nim-lang/Nim.git
             cd Nim
-            git checkout -b master origin/master
-            
+            #git checkout -b master origin/master
+            git checkout tags/v0.15.2            
         fi
         if [ -d "$HOME/nim/Nim/csources" ]; then
             cd csources
             git pull
+            git checkout tags/v0.15.2             
         else
-            git clone --depth 1 https://github.com/nim-lang/csources
+            git clone https://github.com/nim-lang/csources
             cd csources
             #git checkout -b master origin/master
+            git checkout tags/v0.15.2     
         fi
 
         sh build.sh
@@ -34,24 +39,30 @@ function nim_compile {
         sh build_tools.sh
         ./koch web
         #./koch nimble
-        nim e install_nimble.nims
-
-        #DONT USE KOCH, doesn't work on osx for geninstall, which creates installer
-        # ./koch geninstall
-        # sh install.sh install
 
         rm -f /usr/bin/nim*
         rm -f /usr/local/bin/nim*
         rm -rf /usr/local/lib/nim*
         rm -rf /usr/lib/nim*
+        rm -f /usr/bin/koch*
+        rm -f /usr/local/bin/koch*
+
         ln -s ~/nim/Nim/lib/ /usr/local/lib/nim
         ln -s ~/nim/Nim/bin/nim /usr/local/bin/nim
+
+        nim e install_nimble.nims
+
         ln -s ~/nim/Nim/bin/nimble /usr/local/bin/nimble
         ln -s ~/nim/Nim/bin/nimgrep /usr/local/bin/nimgrep
         ln -s ~/nim/Nim/bin/nimsuggest /usr/local/bin/nimsuggest
+        ln -s ~/nim/Nim/koch /usr/local/bin/koch
+        ln -s ~/nim/Nim/tools/nimweb /usr/local/bin/nimweb
+
+        #DONT USE KOCH, doesn't work on osx for geninstall, which creates installer
+        # ./koch geninstall
+        # sh install.sh install
         touch $TMPDIR/nimscale_compile_done
     fi
-
 }
 
 function setenv {
@@ -71,15 +82,14 @@ function install_deps {
         nimble install redis -y
         nimble install libcurl -y
         nimble install c2nim -y
-        #nimble install capnp -y
+        nimble install capnp -y
         nimble install fnmatch -y
         nimble install hastyscribe  -y
         nimble install jester -y
-        nimble install jwt -y
+#         nimble install jwt -y
         nimble install libnotify -y
-        nimble install jwt -y
         nimble install lmdb -y
-        nimble install msgpack4nim   -y
+
         nimble install nimlz4 -y
         nimble install nimongo -y
         nimble install nimPDF -y
@@ -105,19 +115,20 @@ function install_deps {
         nimble install teafiles  -y #https://github.com/unicredit/nim-teafiles
         nimble install rethinkdb  -y
         nimble install otp  -y
-        nimble install nimrpc -y
+        #nimble install nimrpc -y
         nimble install fileinput -y
-        nimble install https://github.com/singularperturbation/nim-leveldb -y
+        nimble install pudge -y
+
 
         #NOT WORKING
         # nimble install nimstopwatch -y
         # nimble install orientdb  -y #http://orientdb.com/orientdb/
         # nimble install nim-routine -y
         # nimble install nim-fnmatch -y
+        # nimble install 'https://github.com/singularperturbation/nim-leveldb' -y
+        #nimble install msgpack4nim   -y
         touch $TMPDIR/nimscale_deps_done
     fi
-
-
 }
 
 function install_nimscale {
@@ -159,9 +170,6 @@ function playenv {
 
 ############
 
-# rm -f $TMPDIR/nimscale_compile_done
-# rm -f $TMPDIR/nimscale_deps_done
-# rm -f $TMPDIR/nimscale_done
 
 
 if [ "$(uname)" == "Darwin" ]; then
@@ -179,3 +187,10 @@ setenv
 install_deps
 install_nimscale
 playenv
+
+#at end remove the files for done, because if we call this again I am sure goal is to redo it
+rm -f $TMPDIR/nimscale_compile_done
+rm -f $TMPDIR/nimscale_deps_done
+rm -f $TMPDIR/nimscale_done
+
+
