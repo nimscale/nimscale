@@ -2,6 +2,7 @@
 
 to install
 ```
+sudo apt-get install git gcc
 curl https://raw.githubusercontent.com/nimscale/nimscale/master/install/install.sh?$RANDOM |bash
 ```
 
