@@ -89,7 +89,7 @@ function install_deps {
         nimble install c2nim -y
         nimble install capnp -y
         nimble install fnmatch -y
-        nimble install hastyscribe  -y
+        #nimble install hastyscribe  -y
         nimble install jester -y
         nimble install jwt -y
         nimble install libnotify -y
@@ -103,7 +103,7 @@ function install_deps {
         nimble install oauth -y
         nimble install rbtree -y
         nimble install reactor -y
-        nimble install RingBuffer  -y
+        #nimble install RingBuffer  -y
         nimble install shorturl  -y
         nimble install signals -y
         nimble install sophia -y
@@ -122,6 +122,7 @@ function install_deps {
         nimble install nimrpc -y
         nimble install fileinput -y
         nimble install pudge -y
+        nimble install isa -y
 
 
         #NOT WORKING
