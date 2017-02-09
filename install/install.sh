@@ -61,6 +61,7 @@ function nim_compile {
         #DONT USE KOCH, doesn't work on osx for geninstall, which creates installer
         # ./koch geninstall
         # sh install.sh install
+        
         touch $TMPDIR/nimscale_compile_done
     fi
 }
@@ -68,6 +69,11 @@ function nim_compile {
 function setenv {
     export PATH=$HOME/.nimble/bin:$PATH
     # cp ~/.bash_profile ~/.bash_profile2; cat ~/.bash_profile2 | grep -v '/.nimble' > ~/.bash_profile
+    if [ -e $TMPDIR/nimscale_deps_done ] ; then
+        echo ".bash profile exists"  
+    else
+        touch ~/.bash_profile
+    fi
     sed -i.bak '/.nimble/d' ~/.bash_profile
     echo 'export PATH=$HOME/.nimble/bin:$PATH' >> $HOME/.bash_profile
 }
