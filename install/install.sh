@@ -91,10 +91,9 @@ function install_deps {
         nimble install fnmatch -y
         nimble install hastyscribe  -y
         nimble install jester -y
-#         nimble install jwt -y
+        nimble install jwt -y
         nimble install libnotify -y
         nimble install lmdb -y
-
         nimble install nimlz4 -y
         nimble install nimongo -y
         nimble install nimPDF -y
@@ -120,7 +119,7 @@ function install_deps {
         nimble install teafiles  -y #https://github.com/unicredit/nim-teafiles
         nimble install rethinkdb  -y
         nimble install otp  -y
-        #nimble install nimrpc -y
+        nimble install nimrpc -y
         nimble install fileinput -y
         nimble install pudge -y
 
