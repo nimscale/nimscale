@@ -36,9 +36,9 @@ function nim_compile {
         bin/nim c koch
         ./koch boot -d:release
         #./koch tools
-        sh build_tools.sh
+        #sh build_tools.sh
         ./koch web
-        #./koch nimble
+        ./koch nimble
 
         rm -f /usr/bin/nim*
         rm -f /usr/local/bin/nim*
@@ -50,7 +50,7 @@ function nim_compile {
         ln -s ~/nim/Nim/lib/ /usr/local/lib/nim
         ln -s ~/nim/Nim/bin/nim /usr/local/bin/nim
 
-        nim e install_nimble.nims
+        #nim e install_nimble.nims
 
         ln -s ~/nim/Nim/bin/nimble /usr/local/bin/nimble
         ln -s ~/nim/Nim/bin/nimgrep /usr/local/bin/nimgrep
