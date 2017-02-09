@@ -1,6 +1,5 @@
 set -ex
 
-rm -rf $HOME/nim
 mkdir -p $HOME/nim
 cd $HOME/nim
 
