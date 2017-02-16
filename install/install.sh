@@ -116,7 +116,7 @@ function install_deps {
         nimble install yaml  -y
         nimble install zip  -y
         nimble install enet  -y #http://enet.bespin.org/Features.html
-        #nimble install teafiles  -y #https://github.com/unicredit/nim-teafiles #commented because of git access issues
+        nimble install teafiles  -y #https://github.com/unicredit/nim-teafiles
         nimble install rethinkdb  -y
         nimble install otp  -y
         nimble install nimrpc -y
