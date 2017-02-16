@@ -198,4 +198,4 @@ rm -f $TMPDIR/nimscale_compile_done
 rm -f $TMPDIR/nimscale_deps_done
 rm -f $TMPDIR/nimscale_done
 
-
+echo "Installation Done!"
