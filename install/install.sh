@@ -48,7 +48,9 @@ function nim_compile {
         cd $HOME/nim
 
         mkdir -p $HOME/nim/bin
+        mkdir -p $HOME/nim/config
         cp $HOME/nim/code/Nim/bin/* $HOME/nim/bin
+        cp $HOME/nim/code/Nim/config/* $HOME/nim/config
         export PATH=$HOME/nim/bin:$PATH
 
 
