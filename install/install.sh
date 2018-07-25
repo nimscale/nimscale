@@ -85,6 +85,18 @@ function nim_compile {
     fi
 }
 
+function installinos {
+    rm -f /usr/bin/nim*
+    rm -f /usr/local/bin/nim*
+    rm -rf /usr/local/lib/nim*
+    rm -rf /usr/lib/nim*
+    rm -f /usr/bin/koch*
+    rm -f /usr/local/bin/koch*    
+    ln -s ~/nim/code/Nim/bin/* /usr/local/bin/
+    ln -s ~/nim/code/Nim/lib/ /usr/local/lib/nim
+
+}
+
 function setenv {
     export PATH=$HOME/.nimble/bin:$HOME/nim/bin:$PATH
     export NIM_LIB_PREFIX=$HOME/nim
@@ -221,6 +233,7 @@ fi
 setenv
 install_deps
 install_nimscale
+installinos
 playenv
 
 #at end remove the files for done, because if we call this again I am sure goal is to redo it
