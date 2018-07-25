@@ -158,6 +158,7 @@ function install_deps {
         nimble install nifty -y
         nimble install nwt -y
         nimble install nim-slimdown -y
+        nimble install nimpy -y
 
         #NOT WORKING BUT SHOULD
         # nimble install jwt -y
